@@ -10,6 +10,8 @@
 
 ping-pong/
 
+├── .gitignore
+
 ├── Dockerfile
 
 ├── README.md
