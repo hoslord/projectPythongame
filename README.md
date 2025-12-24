@@ -1,4 +1,4 @@
-# projectPythongame
+ИГРА ПИНГ-ПОНГ
 
 Описание проекта:
 Проект игры Ping-Pong созданный на python.
