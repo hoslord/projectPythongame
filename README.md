@@ -9,8 +9,11 @@
 ## СТРУКТУРА РЕПОЗИТОРИЯ
 
 ping-pong/
+
 ├── Dockerfile
+
 ├── README.md
+
 └── requirements.txt
 
 ---
@@ -31,6 +34,7 @@ ping-pong/
 ```bash
 docker build -t ping-pong .
 ```
+### 2. Запуск
 ```bash
 docker run --rm -it \
   --name ping-pong-app \
