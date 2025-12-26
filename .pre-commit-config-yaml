@@ -1,0 +1,38 @@
+# .pre-commit-config.yaml
+# Конфигурация автоматических проверок перед коммитом
+# Документация: https://pre-commit.com
+
+repos:
+  # Базовые хуки для любых проектов
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0  # Версия пакета с хуками
+    hooks:
+      - id: trailing-whitespace    # Удаляет пробелы в конце строк
+      - id: end-of-file-fixer      # Добавляет пустую строку в конце файла
+      - id: check-yaml             # Проверяет синтаксис YAML файлов
+  
+  # Автоматический форматировщик Python кода
+  - repo: https://github.com/psf/black
+    rev: 24.10.0
+    hooks:
+      - id: black
+        # Настройки Black
+        args: [--line-length=100]          # Максимальная длина строки
+        exclude: ^(assets|data|venv)/      # Исключаем папки с ресурсами и окружением
+  
+  # Сортировка импортов в Python файлах
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        # Сортировка импортов в стиле Black
+        args: ["--profile", "black", "--line-length=100]
+  
+  # Ruff - быстрый линтер с автоисправлением ошибок
+  # Заменяет flake8, pylint, pyupgrade и другие инструменты
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.1
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]  # Автоисправление ошибок
+        exclude: ^(assets|data|venv)/          # Исключаем те же папки
